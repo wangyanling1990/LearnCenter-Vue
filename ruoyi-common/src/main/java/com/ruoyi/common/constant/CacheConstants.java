@@ -41,4 +41,24 @@ public class CacheConstants
      * 登录账户密码错误次数 redis key
      */
     public static final String PWD_ERR_CNT_KEY = "pwd_err_cnt:";
+
+    //=============================================补充=======================================================
+
+    /**
+     * 验证码前缀
+     */
+    public static final String DEFAULT_CODE_KEY = "DEFAULT_CODE_KEY:";
+
+    /**
+     * 验证码长度
+     */
+    public static final String CODE_SIZE = "4";
+    /**
+     * 刷新
+     */
+    public static final String REFRESH_TOKEN = "refresh_token";
+    /**
+     * 验证码有效期
+     */
+    public static final int CODE_TIME = 60;
 }
