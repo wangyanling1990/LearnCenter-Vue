@@ -112,6 +112,7 @@
         key="stock"
         prop="stock"
         width="100"
+        :formatter="stockFormatter"
       />
       <el-table-column
         label="创建时间"
@@ -153,6 +154,14 @@
         </template>
       </el-table-column>
     </el-table>
+    <pagination
+          v-show="total>0"
+          :total="total"
+          :page.sync="queryParams.pageNum"
+          :limit.sync="queryParams.pageSize"
+          @pagination="getList"
+        />
+      </el-col>
     <!-- 编辑窗口 -->
     <el-dialog :title="title" :visible.sync="open" width="450px" append-to-body>
       <el-form ref="form" :model="form" :rules="rules" label-width="100px">
@@ -248,12 +257,16 @@ export default {
     return {
       // 遮罩层
       loading: false,
+      // 总条数
+      total: 0,
       // 表格数据
       list: [],
       // 显示搜索条件
       showSearch: true,
       // 查询参数
       queryParams: {
+        pageNum: 1,
+        pageSize: 10,
         name: undefined,
         status: undefined,
         appId: undefined,
@@ -294,6 +307,7 @@ export default {
       this.loading = true;
       listProduct(this.queryParams).then((response) => {
         this.list = response.data;
+        this.total = response.total;
         this.loading = false;
       });
     },
@@ -399,6 +413,11 @@ export default {
     /** 价格格式化 保留1位小数 */
     priceFormatter(row) {
       return row.price.toFixed(1);
+    },
+    /** 库存格式化 保留1位小数 */
+    stockFormatter(row) {
+      if (!row.stock) return "-";
+      return row.stock;
     },
     /** 状态格式化 */
     statusFormatter(row) {
