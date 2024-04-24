@@ -154,14 +154,14 @@
         </template>
       </el-table-column>
     </el-table>
+    <!-- 分页 -->
     <pagination
-          v-show="total>0"
-          :total="total"
-          :page.sync="queryParams.pageNum"
-          :limit.sync="queryParams.pageSize"
-          @pagination="getList"
-        />
-      </el-col>
+      v-show="total > 0"
+      :total="total"
+      :page.sync="queryParams.pageNum"
+      :limit.sync="queryParams.pageSize"
+      @pagination="getList"
+    />
     <!-- 编辑窗口 -->
     <el-dialog :title="title" :visible.sync="open" width="450px" append-to-body>
       <el-form ref="form" :model="form" :rules="rules" label-width="100px">
@@ -293,7 +293,6 @@ export default {
       },
       appList: [],
       categoryList: [],
-      showParent: false,
     };
   },
   created() {
@@ -352,7 +351,7 @@ export default {
     },
     /** 修改 */
     handleUpdate(row) {
-      this.title = "修改分类";
+      this.title = "修改商品";
       this.reset();
       getProduct(row.id).then((response) => {
         this.form = response.data;

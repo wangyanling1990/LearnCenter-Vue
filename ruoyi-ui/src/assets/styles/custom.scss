@@ -1,0 +1,65 @@
+/** 自定义样式 */
+body {
+  font-family: "Source Han Sans";
+}
+.app-main {
+  background: #f9f9f9;
+}
+
+.el-input {
+  width: 180px;
+}
+
+.el-select .el-input {
+  width: 122px;
+}
+
+.el-range-editor.el-input__inner {
+  width: 278px;
+}
+
+.search-container,
+.table-container {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 4px;
+}
+
+.search-container {
+  margin-bottom: 20px;
+  padding-bottom: 2px;
+}
+
+.table-container .toolbar {
+  margin-bottom: 10px;
+  display: flex;
+}
+
+.table-container .toolbar .top-right-btn {
+  flex: 1;
+  text-align: right;
+  align-self: center;
+}
+
+.table-container .el-table tbody tr {
+  height: 80px;
+}
+
+.table-container .el-table {
+  border: 1px solid #c9c9c9;
+  border-radius: 4px;
+}
+
+.table-container .danger-button {
+  color: #d20a0a;
+}
+
+.el-dialog .el-form {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.el-dialog .el-form .el-input,
+.el-dialog .el-form .el-select {
+  width: 100%;
+}
